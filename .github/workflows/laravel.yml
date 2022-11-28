@@ -10,24 +10,18 @@ jobs:
     steps:
     - name: build process
       run: |
-         echo "security changes"
-         echo "Test changes" /test/test.txt
-         cat /test/test.txt
+         echo "build process"
   test:
     runs-on: ubuntu-latest
     needs: build
     steps:
     - name: test process
       run: |
-         echo "security changes"
-         echo "Test changes" /test/test.txt
-         cat /test/test.txt
+         echo "test process"
   deploy:
     runs-on: ubuntu-latest
     needs: [build, test]
     steps:
     - name: deploy process
       run: |
-         echo "security changes"
-         echo "Test changes" /test/test.txt
-         cat /test/test.txt
+         echo "deploy process"
