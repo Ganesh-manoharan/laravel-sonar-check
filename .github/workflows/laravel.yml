@@ -25,3 +25,10 @@ jobs:
     - name: deploy process
       run: |
          echo "deploy process"
+  release:
+    runs-on: ubuntu-latest
+    needs: [build, test, deploy]
+    steps:
+    - name: release process
+      run: |
+         echo "release process"
