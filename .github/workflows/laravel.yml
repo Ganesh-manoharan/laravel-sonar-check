@@ -1,6 +1,7 @@
 name: Dev-app-Automatic-deployment
 
 on:
+  workflow_call: 
   push:
     branches: [ master ]
 
