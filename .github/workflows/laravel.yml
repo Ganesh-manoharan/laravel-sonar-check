@@ -12,6 +12,8 @@ jobs:
     - name: build process
       run: |
          echo "build process"
+         apt-get update
+         apt-get install nginx
   test:
     runs-on: ubuntu-latest
     needs: [build]
@@ -19,6 +21,8 @@ jobs:
     - name: test process
       run: |
          echo "test process"
+         apt-get update
+         apt-get install nginx
   deploy:
     runs-on: ubuntu-latest
     needs: [test]
@@ -26,6 +30,8 @@ jobs:
     - name: deploy process
       run: |
          echo "deploy process"
+         apt-get update
+         apt-get install nginx
   release:
     runs-on: ubuntu-latest
     needs: [deploy]
@@ -33,3 +39,5 @@ jobs:
     - name: release process
       run: |
          echo "release process"
+         apt-get update
+         apt-get install nginx
