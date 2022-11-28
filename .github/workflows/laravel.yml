@@ -14,19 +14,21 @@ jobs:
          echo "build process"
   test:
     runs-on: ubuntu-latest
+    needs: [build]
     steps:
     - name: test process
       run: |
          echo "test process"
   deploy:
     runs-on: ubuntu-latest
+    needs: [test]
     steps:
     - name: deploy process
       run: |
          echo "deploy process"
   release:
     runs-on: ubuntu-latest
-    needs: [build, test, deploy]
+    needs: [deploy]
     steps:
     - name: release process
       run: |
