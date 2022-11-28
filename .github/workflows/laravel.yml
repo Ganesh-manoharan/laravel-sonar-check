@@ -12,7 +12,6 @@ jobs:
     - name: build process
       run: |
          echo "build process"
-         run-name: test
   test:
     runs-on: ubuntu-latest
     steps:
