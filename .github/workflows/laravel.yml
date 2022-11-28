@@ -2,7 +2,7 @@ name: Dev-app-Automatic-deployment
 
 on:
   push:
-    branches: [ test ]
+    branches: [ master ]
 
 jobs:
   build:
