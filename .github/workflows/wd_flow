@@ -1,0 +1,16 @@
+workflow_dispatch:
+    inputs:
+      name:
+        description: "test trigger"
+        default: "test"
+    jobs:
+     deploy:
+     runs-on: ubuntu-latest
+     needs: [test]
+    if: github.event.inputs == 'name'
+    steps:
+    - name: deploy process
+      run: |
+         echo "deploy process"
+         sudo apt-get update
+         sudo apt-get install nginx
