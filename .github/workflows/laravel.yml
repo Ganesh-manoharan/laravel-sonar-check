@@ -23,6 +23,4 @@ jobs:
          sudo apt-get update
          sudo apt-get install nginx
     - name: Early exit
-      run: echo "test"
-    - if: failure()
-      run: echo "failed but success"
+      run: exit 1
