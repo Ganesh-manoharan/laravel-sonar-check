@@ -27,7 +27,7 @@ jobs:
       run: echo "test"
       continue-on-error: true
     - name: Check on failures
-      if: steps.exit.outcome = 'success'
+      if: steps.exit.outcome != 'failure'
       run: exit 1
   test2:
     runs-on: ubuntu-latest
