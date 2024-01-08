@@ -1,11 +1,6 @@
 name: Dev-app-Automatic-deployment
 
 on:
- workflow_dispatch:
-    inputs:
-      name:
-        description: "test trigger"
-        default: "test"
  push:
     branches: [ master ]
 
@@ -25,15 +20,5 @@ jobs:
     - name: test process
       run: |
          echo "test process"
-         sudo apt-get update
-         sudo apt-get install nginx
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [test]
-    if: github.event.inputs == 'name'
-    steps:
-    - name: deploy process
-      run: |
-         echo "deploy process"
          sudo apt-get update
          sudo apt-get install nginx
