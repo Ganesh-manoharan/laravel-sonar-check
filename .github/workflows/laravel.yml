@@ -13,6 +13,7 @@ jobs:
          echo "build process"
          sudo apt-get update
          sudo apt-get install nginx
+         
   test:
     runs-on: ubuntu-latest
     needs: [build]
@@ -22,17 +23,15 @@ jobs:
          echo "test process"
          sudo apt-get update
          sudo apt-get install nginx
-    - name: Early exit
-      id: exit
-      run: echo "test"
-      continue-on-error: true
-    - name: Check on failures
-      if: steps.exit.outcome != 'failure'
-      run: exit 1
-  test2:
+
+      
+  manual_job:
+    if: github.event_name == 'workflow_run'
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: test
     steps:
-    - name: test process
-      run: |
-         echo "test process"
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Manual Job
+        run: echo "new commands"
