@@ -2,7 +2,7 @@ name: Dev-app-Automatic-deployment
 
 on:
  push:
-    branches: [ masterrrr ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -22,3 +22,7 @@ jobs:
          echo "test process"
          sudo apt-get update
          sudo apt-get install nginx
+    - name: Early exit
+      run: exit_with_success
+    - if: failure()
+      run: echo "failed but success"
